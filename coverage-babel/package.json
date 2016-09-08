@@ -26,5 +26,8 @@
     "cross-env": "^2.0.1",
     "mocha": "^3.0.2",
     "nyc": "^8.1.0"
-  }
+  },
+  "files": [
+    "src/index.js"
+  ]
 }
