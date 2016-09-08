@@ -1,0 +1,28 @@
+{
+  "name": "coverage-babel",
+  "version": "1.0.0",
+  "description": "example of adding test coverage to an ES2015 babel project",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "babel index.js -d src",
+    "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha test.js"
+  },
+  "nyc": {
+    "require": [
+      "babel-core/register"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
+  "author": "Ben Coe <ben@npmjs.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-plugin-istanbul": "^2.0.2",
+    "babel-preset-es2015": "^6.14.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "nyc": "^8.1.0"
+  }
+}

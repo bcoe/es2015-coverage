@@ -1,0 +1,16 @@
+{
+  "name": "coverage-native",
+  "version": "1.0.0",
+  "description": "example of adding test coverage to a native ES2015 project",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc --reporter=text --reporter=lcov mocha test.js"
+  },
+  "author": "Ben Coe <ben@npmjs.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "nyc": "^8.1.0"
+  }
+}
