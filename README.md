@@ -19,7 +19,7 @@ By relying on the preset, there are only a few dependencies that we need to add
 test coverage to our ES2015 project:
 
 ```bash
-npm i babel-cli babel-core babel-plugin-istanbul babel-preset-es2015 mocha chai nyc --save-dev
+npm i babel-cli babel-core babel-plugin-istanbul babel-preset-es2015 cross-env mocha chai nyc --save-dev
 ```
 
 * `babel-cli`: is the command-line interface for babel; we use it during the build step.
