@@ -142,9 +142,7 @@ supported. <a href="http://node.green/" target="_blank">node.green</a> provides
 a useful chart for viewing compatibility information.
 
 nyc uses the same parser underneath the hood as babel and understands native
-ES2015 constructs, so ...
-
-> with zero configuration you can start instrumenting your ES2015 code!
+ES2015 constructs; with zero configuration you can start instrumenting your ES2015 code!
 
 ```json
 {"scripts": {
