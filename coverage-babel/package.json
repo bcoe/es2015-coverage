@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "build": "babel index.js -d src",
-    "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha test.js"
+    "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha test.js",
+    "prepublish": "npm run build"
   },
   "nyc": {
     "require": [
@@ -22,7 +23,11 @@
     "babel-plugin-istanbul": "^2.0.2",
     "babel-preset-es2015": "^6.14.0",
     "chai": "^3.5.0",
+    "cross-env": "^2.0.1",
     "mocha": "^3.0.2",
     "nyc": "^8.1.0"
-  }
+  },
+  "files": [
+    "src/index.js"
+  ]
 }
