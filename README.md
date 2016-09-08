@@ -90,20 +90,20 @@ plugin only when `NODE_ENV=test`.
 ```
 
 * `scripts.test`:
-  * `cross-env NODE_ENV=test`: sets the `NODE_ENV` environment variable, resulting in the `babel-plugin-istanbul` plugin being loaded.
+  * `cross-env NODE_ENV=test`: sets the `NODE_ENV` environment variable resulting in the `babel-plugin-istanbul` plugin being loaded.
   * `nyc --reporter=lcov --reporter=text`: indicates that nyc should be used to
      run `mocha`, and that it should output both an `lcov` and a `text` report.
   * `mocha test.js`: it doesn't get much simpler than this; use `mocha` to run
     `test.js`.
 * `scripts.build`: this script uses `babel-cli` to compile your ES2015 code.
-* `scripts.prepublish`: we make sure to run the build step, before publishing our
-  module to npm.
+* `scripts.prepublish`: we automatically run the build step before publishing our
+  package to npm.
 
 ### Writing Tests
 
-Because `nyc` automatically loads `babel-core/register` for your tests, there is no
-build step necessary to start running unit tests. Just write your tests using
-ES2015 syntax and require the pre-compiled ES2015 JavaScript files:
+Because `nyc` automatically loads `babel-core/register` there is no
+build step necessary for your tests. Just write your tests using
+ES2015 syntax and `require()` the pre-compiled ES2015 JavaScript files:
 
 ```js
 import CoverageBabel from './index'
@@ -125,7 +125,7 @@ your ES2015 JavaScript into ES5 compatible code:
 
 `babel index.js -d src`
 
-This command will read in your ES2015 `./index.js` file, and output the ES5
+This command will read in your ES2015 `./index.js` file and output the ES5
 `./src/index.js` file. Only `./src/index.js` should be published to npm, which
 can be achieved by adding a `files` stanza to your package.json:
 
@@ -136,3 +136,18 @@ can be achieved by adding a `files` stanza to your package.json:
 ```
 
 ## Instrumenting Native ES2015 Code
+
+If you're using newer versions's of Node.js various ES2015 features are already
+supported. <a href="http://node.green/" target="_blank">node.green</a> provides
+a useful chart for viewing compatibility information.
+
+nyc uses the same parser underneath the hood as babel and understands native
+ES2015 constructs.
+
+> with zero configuration, you can start instrumenting your ES2015 code!
+
+```json
+{"scripts": {
+  "test": "nyc --reporter=text --reporter=lcov mocha test.js"
+}}
+```
